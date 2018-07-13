@@ -1,4 +1,4 @@
-var scorePlayer = 0;
+/*var scorePlayer = 0;
 var scoreComputer = 0;
 var choices = ['rock', 'paper', 'scissors'];
 

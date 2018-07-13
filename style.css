@@ -1,0 +1,61 @@
+body, head {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: #F7EDBA;
+}
+
+.content {
+}
+
+.console {
+}
+
+.header {
+  margin: 0 auto;
+  width: 80vh;
+  height: 6vh;
+  background: linear-gradient(180deg, #E9E9E9, #B0AFAF);
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #989898;
+}
+
+.textarea {
+  margin: 0 auto;
+  width: 80vh;
+  height: 40vh;
+  background-color: #161616;
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #676767;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 80vh;
+  margin: 10px auto 0 auto;
+  text-align: center;
+}
+
+button {
+  position: relative;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  width: 20vh;
+  height: 20vh;
+  border-radius: 20px;
+  background: #cb4e4e;
+  box-shadow: 0 6px #ab3c3c;
+}
+
+button:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+button:active {
+  box-shadow: 0 0;
+  top: 6px;
+}
