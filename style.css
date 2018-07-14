@@ -1,3 +1,20 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'), url(https://fonts.gstatic.com/s/robotomono/v5/L0x5DF4xlVMF-BfR8bXMIjhFq3-OXg.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'), url(https://fonts.gstatic.com/s/robotomono/v5/L0x5DF4xlVMF-BfR8bXMIjhLq38.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 body, head {
   box-sizing: border-box;
   width: 100%;
@@ -6,18 +23,31 @@ body, head {
 }
 
 .content {
-}
-
-.console {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   width: 80vh;
   height: 6vh;
   background: linear-gradient(180deg, #E9E9E9, #B0AFAF);
   border-radius: 10px 10px 0 0;
   border: 1px solid #989898;
+}
+
+.header p {
+  color: #545656;
+  font: bold 15px 'arial';
+  text-shadow: 1px 1px #e0e0e0;
 }
 
 .textarea {
@@ -29,11 +59,21 @@ body, head {
   border: 1px solid #676767;
 }
 
+.textarea p {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  color: #06a708;
+  font: bold 12px 'Roboto Mono';
+  text-shadow: 1px 1px #000;
+}
+
+ /* BUTTONS */
 .buttons {
   display: flex;
   justify-content: space-between;
   width: 80vh;
-  margin: 10px auto 0 auto;
+  margin: 8vh auto 0 auto;
   text-align: center;
 }
 
@@ -42,20 +82,61 @@ button {
   border: none;
   cursor: pointer;
   outline: none;
-
+/*Reset buttons layout*/
   width: 20vh;
   height: 20vh;
   border-radius: 20px;
+  /*Commom buttons properties*/
+}
+
+#rock {
   background: #cb4e4e;
   box-shadow: 0 6px #ab3c3c;
 }
 
-button:hover {
+#rock:hover {
   box-shadow: 0 4px #ab3c3c;
   top: 2px;
 }
 
-button:active {
+#rock:active {
   box-shadow: 0 0;
   top: 6px;
 }
+
+#paper {
+  background: #4ecb7c;
+  box-shadow: 0 6px #2e8648;
+}
+
+#paper:hover {
+  box-shadow: 0 4px #2e8648;
+  top: 2px;
+}
+
+#paper:active {
+  box-shadow: 0 0;
+  top: 6px;
+}
+
+#scissors {
+  background: #c7cb4e;
+  box-shadow: 0 6px #9c8e32;
+}
+
+#scissors:hover {
+  box-shadow: 0 4px #9c8e32;
+  top: 2px;
+}
+
+#scissors:active {
+  box-shadow: 0 0;
+  top: 6px;
+}
+
+/*Resources:
+https://www.freepik.com/free-vector/stone-age-writing-3d-letters_1311233.htm#term=rock%20icon&page=1&position=32
+
+https://www.freepik.com/free-vector/flat-paper-collection_839495.htm#term=paper%20icon&page=1&position=14
+
+https://www.freepik.com/free-vector/school-elements-collection_1046735.htm#term=scissors%20icon&page=1&position=5 */
