@@ -59,13 +59,41 @@ body, head {
   border: 1px solid #676767;
 }
 
-.textarea p {
-  position: relative;
-  top: 10px;
-  left: 10px;
+.score-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  float: right;
+  margin: 1vh 0;
+  border-radius: 1vh 0 0 1vh;
+  width: 18vh;
+  height: 8vh;
+  background-color: #434343;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.box-text {
+  text-align: right;
+}
+
+.score-box p {
+  font: bold 2.2vh 'Roboto Mono';
   color: #06a708;
-  font: bold 12px 'Roboto Mono';
   text-shadow: 1px 1px #000;
+  padding: 0.3vh;
+}
+
+.console {
+  position: absolute;
+  padding: 2vh 0 0 2vh;
+}
+
+.console p {
+  color: #06a708;
+  font: bold 2vh 'Roboto Mono';
+  text-shadow: 1px 1px #000;
+  padding-bottom: 1vh;
 }
 
  /* BUTTONS */

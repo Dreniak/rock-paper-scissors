@@ -3,21 +3,39 @@ var scoreComputer = 0;
 var round = 0;
 var choices = ['rock', 'paper', 'scissors'];
 var buttons = document.querySelectorAll('button');
+var playerMove = document.querySelector("#player-move");
+var computerMove = document.querySelector("#computer-move");
+var waitTime = document.querySelector("#wait-time");
+var playerScore = document.querySelector("#player-score");
+var computerScore = document.querySelector("#computer-score");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    var clickedButton = e.target.id;
-    var clickedButtonNumber = playerPlay(clickedButton);
-    console.log(round + 1);
-    console.log(playRound(clickedButtonNumber, computerPlay())); // calls playRound function
-    round++;
-    console.log(scorePlayer, scoreComputer);
-    if (round == 5) {
-      console.log(calcMatchWinner());
-      scorePlayer = 0;
-      scoreComputer = 0;
-      round = 0;
-    }
+    var playerChoice = e.target.id;
+    var playerChoiceNumber = playerPlay(playerChoice);
+    var computerChoiceNumber = computerPlay();
+    var computerChoice = choices[computerChoiceNumber-1];
+
+    buttons.forEach((button) => {button.disabled=true});
+
+    displayMoves(playerChoice, computerChoice);
+    //displays the chosen moves in the hud
+    setTimeout(() => {
+      console.log(round + 1);
+    //Makes code waits till displayMoves() finishes
+      console.log(playRound(playerChoiceNumber, computerChoiceNumber));
+      // calls playRound function
+      round++;
+      displayScore();
+      if (round == 5) {
+        console.log(calcMatchWinner());
+        scorePlayer = 0;
+        scoreComputer = 0;
+        round = 0;
+      }
+      resetDisplay();
+      buttons.forEach((button) => {button.disabled=false});
+    }, 3000);
   });
 });
 
@@ -33,6 +51,30 @@ function playerPlay (choice) { // tranform string (choice) into number
       break;
     }
   }
+}
+
+function displayMoves (playerChoice, computerChoice) {
+  playerMove.textContent = `You chose ${playerChoice}!`;
+  setTimeout(() => {
+    waitTime.textContent = '.';
+  }, 500);
+  setTimeout(() => {waitTime.textContent = '..';
+}, 1000);
+  setTimeout(() => {
+    waitTime.textContent = '...';
+    computerMove.textContent = `Computer chose ${computerChoice}!`;
+  }, 1500);
+}
+
+function displayScore () {
+  playerScore.textContent = `Player: ${scorePlayer}`;
+  computerScore.textContent = `Computer: ${scoreComputer}`;
+}
+
+function resetDisplay () {
+  playerMove.textContent = '';
+  waitTime.textContent = '';
+  computerMove.textContent = '';
 }
 
 function playRound (playerSelection, computerSelection) {
@@ -65,6 +107,6 @@ function calcMatchWinner () {
   if (scorePlayer > scoreComputer) {
     return "Congrats! You won the 5 rounds match!";
   } else if (scorePlayer < scoreComputer) {
-    return "Too bad! you lost the 5 rounds match, wanna try again?"
+    return "Too bad! you lost the 5 rounds match..."
   } else {return "So close! It's a tie!";}
 }

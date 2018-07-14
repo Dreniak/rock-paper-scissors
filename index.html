@@ -11,12 +11,23 @@
 </head>
 <body>
   <div class="content">
-    <div class="console">
+    <div class="terminal">
       <div class="header">
         <p>Terminal</p>
       </div>
       <div class="textarea">
-        <p>Nosso texto ficará aqui!</p>
+        <div class="console">
+          <p>Your turn:</p>
+          <p id="player-move"></p>
+          <p id="wait-time"></p>
+          <p id="computer-move"></p>
+        </div>
+        <div class="score-box">
+          <div class="box-text">
+            <p id="player-score">Player: 0</p>
+            <p id="computer-score">Computer: 0</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="buttons">
