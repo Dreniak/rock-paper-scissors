@@ -2,7 +2,12 @@ var scorePlayer = 0;
 var scoreComputer = 0;
 var round = 0;
 var choices = ['rock', 'paper', 'scissors'];
-var buttons = document.querySelectorAll('button');
+var buttons = document.querySelectorAll('.buttons button');
+var consoleArea = document.querySelector(".console");
+var roundWinnerBox = document.querySelector(".round-winner-box");
+var roundWinner = document.querySelector("#round-winner");
+var matchResult = document.querySelector("#match-result")
+var nextButton = document.querySelector("#next");
 var playerMove = document.querySelector("#player-move");
 var computerMove = document.querySelector("#computer-move");
 var waitTime = document.querySelector("#wait-time");
@@ -23,7 +28,7 @@ buttons.forEach((button) => {
     setTimeout(() => {
       console.log(round + 1);
     //Makes code waits till displayMoves() finishes
-      console.log(playRound(playerChoiceNumber, computerChoiceNumber));
+      playRound(playerChoiceNumber, computerChoiceNumber);
       // calls playRound function
       round++;
       displayScore();
@@ -32,10 +37,17 @@ buttons.forEach((button) => {
         scorePlayer = 0;
         scoreComputer = 0;
         round = 0;
+        return;
       }
       resetDisplay();
-      buttons.forEach((button) => {button.disabled=false});
-    }, 3000);
+      consoleArea.hidden = true;
+      roundWinnerBox.hidden = false;
+      nextButton.addEventListener("click", () => {
+        consoleArea.hidden = false;
+        roundWinnerBox.hidden = true;
+        buttons.forEach((button) => {button.disabled=false});
+      });
+    }, 2500);
   });
 });
 
@@ -87,18 +99,21 @@ function playRound (playerSelection, computerSelection) {
   console.log(`Player move: ${choices[playerIndex]} || Computer move: ${choices[computerIndex]}`);
 
   switch (true) { // Check moves from players and determines a winner
-    case playerWinCondition:
+    case playerWinCondition: //case player win
       scorePlayer++
-      return (`You win! ${choices[playerIndex]} beats ${choices[computerIndex]}`);
+      roundWinner.textContent = "PLAYER";
+      matchResult.textContent= `You won! ${choices[playerIndex]} beats ${choices[computerIndex]}!`.toUpperCase();
     break;
 
-    case computerWinCondition:
+    case computerWinCondition: //case computer win
+      roundWinner.textContent = "COMPUTER";
       scoreComputer++
-      return (`You lose! ${choices[computerIndex]} beats ${choices[playerIndex]}`);
+      matchResult.textContent = `You lose! ${choices[computerIndex]} beats ${choices[playerIndex]}`.toUpperCase();
     break;
 
     default:
-      return "It's a tie!";
+      roundWinner.textContent = "IT'S A TIE";
+      matchResult.textContent = "";
   }
 }
 
