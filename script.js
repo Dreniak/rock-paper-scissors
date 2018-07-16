@@ -25,7 +25,7 @@ buttons.forEach((button) => {
       if (e.target.id) return e.target.id;
       return e.target.alt.toLowerCase();
   }
-    var playerChoiceNumber = playerPlay(playerChoice);
+    var playerChoiceNumber = playerPlay(playerChoice());
     var computerChoiceNumber = computerPlay();
     var computerChoice = choices[computerChoiceNumber-1];
     buttons.forEach((button) => { button.disabled=true;});
