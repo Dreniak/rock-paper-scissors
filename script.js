@@ -118,8 +118,6 @@ function playRound (playerSelection, computerSelection) {
   var playerWinCondition = playerSelection > computerSelection && !(playerSelection == 3 && computerSelection == 1) || playerSelection == 1 && computerSelection == 3;
   var computerWinCondition = playerSelection < computerSelection && !(playerSelection == 1 && computerSelection == 3) || playerSelection == 3 && computerSelection == 1;
 
-  console.log(`Player move: ${choices[playerIndex]} || Computer move: ${choices[computerIndex]}`);
-
   switch (true) { // Check moves from players and determines a winner
     case playerWinCondition: //case player win
       scorePlayer++

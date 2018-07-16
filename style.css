@@ -150,6 +150,10 @@ span {
   text-align: center;
 }
 
+.buttons button img {
+  height: 15vh;
+}
+
 button {
   position: relative;
   border: none;
@@ -181,7 +185,7 @@ button {
 }
 
 #rock:disabled, #rock:disabled:hover {
-  background: #464646;
+  background: hsl(0, 25%, 15%);
   top: 6px;
   box-shadow: 0 0;
   cursor: default;
@@ -203,7 +207,7 @@ button {
 }
 
 #paper:disabled, #paper:disabled:hover {
-  background: #464646;
+  background: hsl(142, 25%, 15%);
   top: 6px;
   box-shadow: 0 0;
   cursor: default;
@@ -225,7 +229,7 @@ button {
 }
 
 #scissors:disabled, #scissors:disabled:hover {
-  background: #464646;
+  background: hsl(62, 25%, 15%);
   top: 6px;
   box-shadow: 0 0;
   cursor: default;
