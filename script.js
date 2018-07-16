@@ -21,14 +21,16 @@ var roundNumber = document.querySelector(".round p span");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    var playerChoice = e.target.id;
+    var playerChoice = () => {
+      if (e.target.id) return e.target.id;
+      return e.target.alt.toLowerCase();
+  }
     var playerChoiceNumber = playerPlay(playerChoice);
     var computerChoiceNumber = computerPlay();
     var computerChoice = choices[computerChoiceNumber-1];
-
     buttons.forEach((button) => { button.disabled=true;});
 
-    displayMoves(playerChoice, computerChoice);
+    displayMoves(playerChoice(), computerChoice);
     //displays the chosen moves in the hud
     setTimeout(() => {
     //Makes code waits till displayMoves() finishes
