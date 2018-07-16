@@ -16,10 +16,18 @@
         <p>Terminal</p>
       </div>
       <div class="textarea">
-        <div class="round-winner-box" hidden>
-          <p>Winner of the ROUND:</p>
-          <p id="round-winner"></p>
+        <div class="match-winner-box" hidden>
+          <p>Winner of the <span>MATCH:</span></p>
+          <p id="match-winner"></p>
           <p id="match-result"></p>
+          <button id="restart">
+            <img src="icons8-reiniciar.svg" alt="restart">
+          </button>
+        </div>
+        <div class="round-winner-box" hidden>
+          <p>Winner of the <span>ROUND:</span></p>
+          <p id="round-winner"></p>
+          <p id="round-result"></p>
           <button id="next">>>></button>
         </div>
         <div class="console">
@@ -30,9 +38,13 @@
         </div>
         <div class="score-box">
           <div class="box-text">
+            <p>Score</p>
             <p id="player-score">Player: 0</p>
             <p id="computer-score">Computer: 0</p>
           </div>
+        </div>
+        <div class="round">
+          <p>ROUND: <span>1</span></p>
         </div>
       </div>
     </div>

@@ -62,16 +62,19 @@ body, head {
   font: bold 2.2vh 'Roboto Mono';
 }
 
+.round {
+  float: right;
+  clear: both;
+  width: 18vh;
+  text-align: center;
+}
+
 .console {
   position: absolute;
   padding: 2vh 0 0 2vh;
 }
 
-.score-box p {
-  padding: 0.3vh;
-}
-
-.round-winner-box {
+.round-winner-box, .match-winner-box {
   position: absolute;
   top: 30vh;
   text-align: center;
@@ -79,11 +82,16 @@ body, head {
   width: 80vh;
 }
 
-#round-winner {
+#round-winner, #match-winner {
   font-size: 7vh;
+  color: #ec1818;
 }
 
-#next {
+span {
+  color: #ec1818;
+}
+
+#next, #restart {
   margin-top: 6vh;
   width: 5vh;
   height: 5vh;
@@ -93,10 +101,17 @@ body, head {
   background: linear-gradient(#E9E9E9, #B0AFAF);
 }
 
-#next:active {
+#next:active, #restart:active {
   background: -webkit-linear-gradient(#B0AFAF, #E9E9E9);
   background: -o-linear-gradient(#B0AFAF, #E9E9E9);
   background: linear-gradient(#B0AFAF, #E9E9E9);
+}
+
+#restart img {
+  opacity: .8;
+  margin-top: .5vh;
+  height: 3vh;
+  width: 3vh;
 }
 
 .score-box {
@@ -108,13 +123,22 @@ body, head {
   margin: 1vh 0;
   border-radius: 1vh 0 0 1vh;
   width: 18vh;
-  height: 8vh;
+  height: 10vh;
   background-color: #434343;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .box-text {
   text-align: right;
+}
+
+.score-box p {
+  padding: 0.3vh;
+}
+
+.score-box p:first-child {
+  text-align: center;
+  color: #ec1818;
 }
 
  /* BUTTONS */
@@ -156,6 +180,13 @@ button {
   top: 6px;
 }
 
+#rock:disabled, #rock:disabled:hover {
+  background: #464646;
+  top: 6px;
+  box-shadow: 0 0;
+  cursor: default;
+}
+
 #paper {
   background: #4ecb7c;
   box-shadow: 0 6px #2e8648;
@@ -171,6 +202,13 @@ button {
   top: 6px;
 }
 
+#paper:disabled, #paper:disabled:hover {
+  background: #464646;
+  top: 6px;
+  box-shadow: 0 0;
+  cursor: default;
+}
+
 #scissors {
   background: #c7cb4e;
   box-shadow: 0 6px #9c8e32;
@@ -184,6 +222,13 @@ button {
 #scissors:active {
   box-shadow: 0 0;
   top: 6px;
+}
+
+#scissors:disabled, #scissors:disabled:hover {
+  background: #464646;
+  top: 6px;
+  box-shadow: 0 0;
+  cursor: default;
 }
 
 /*Resources:
